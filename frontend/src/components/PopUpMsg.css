@@ -1,0 +1,66 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #141414;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    color: white;
+    max-width: 600px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup-container.success .popup-content {
+    border: 2px solid limegreen;
+}
+
+.popup-container.error .popup-content {
+    border: 2px solid crimson;
+}
+
+.msg {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.data {
+    font-size: 20px;
+    color: #ccc;
+}
+
+.popup-btn {
+    margin-top: 20px;
+    padding: 10px 24px;
+    background-color: #413685;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+}
+.popup-btn:hover {
+    background-color: #312765;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}

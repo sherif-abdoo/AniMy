@@ -4,21 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/pics/4d4b9607-7fd7-436d-adb8-40d00b636fb2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/pics/WhatsApp Image 2025-04-16 at 21.05.31_0b542b05.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/pics/download (1).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/pics/download (2).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/pics/download (3).jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/pics/download.jpeg" beforeDir="false" />
+    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="signUp card">
+      <change afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/utils/RegistrationData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PopUpMsg.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PopUpMsg.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/config/RegisterConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/controller/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/controller/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/RegistrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/UserServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/utils/RegistrationMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/utils/RegistrationMsg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +63,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Node.js.App.js.executor": "Run",
+    "Node.js.SignUp.jsx.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -82,6 +85,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="S:\programming\AniMy\frontend\src\components" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" activateToolWindowBeforeRun="false" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
@@ -109,7 +117,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744901127716</updated>
-      <workItem from="1744901129568" duration="4457000" />
+      <workItem from="1744901129568" duration="11911000" />
     </task>
     <task id="LOCAL-00001" summary="front end establishment">
       <option name="closed" value="true" />
@@ -119,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744901285494</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="signUp card">
+      <option name="closed" value="true" />
+      <created>1744906300871</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744906300871</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +143,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="front end establishment" />
-    <option name="LAST_COMMIT_MESSAGE" value="front end establishment" />
+    <MESSAGE value="signUp card" />
+    <option name="LAST_COMMIT_MESSAGE" value="signUp card" />
   </component>
 </project>

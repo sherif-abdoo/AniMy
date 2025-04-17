@@ -7,9 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 @RestController
-@RequestMapping("/api/registration")
+@RequestMapping("/api/public/registration")
 @AllArgsConstructor
 public class Register {
 
@@ -28,7 +27,6 @@ public class Register {
     @GetMapping("/confirm")
     public ResponseEntity<ApiResponse<String>> confirmRegistration(
             @RequestParam String token) {
-        System.out.println("confirming token from register: " + token);
         return registrationService.confirmToken(token);
     }
 

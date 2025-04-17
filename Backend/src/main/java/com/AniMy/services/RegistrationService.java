@@ -3,6 +3,7 @@ package com.AniMy.services;
 import com.AniMy.models.EmailConfirmationToken;
 import com.AniMy.models.User;
 import com.AniMy.utils.ApiResponse;
+import com.AniMy.utils.RegistrationData;
 import com.AniMy.utils.RegistrationMsg;
 import com.AniMy.utils.registerRequest;
 import lombok.AllArgsConstructor;
@@ -26,7 +27,7 @@ public class RegistrationService {
                     .status(HttpStatus.BAD_REQUEST)
                     .body(new ApiResponse<>(
                             RegistrationMsg.EMAIL_NOT_VALID,
-                            null));
+                            RegistrationData.EMAIL_NOT_VALID));
         }
         String encodedPass = passwordEncoder.encode(request.getPassword());
         return userService.signUpUser(

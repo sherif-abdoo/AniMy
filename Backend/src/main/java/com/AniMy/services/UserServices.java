@@ -4,10 +4,7 @@ import com.AniMy.models.EmailConfirmationToken;
 import com.AniMy.models.User;
 import com.AniMy.repository.EmailSender;
 import com.AniMy.repository.UserRepository;
-import com.AniMy.utils.ExceptionMsg;
-import com.AniMy.utils.RegisterEmailBuilder;
-import com.AniMy.utils.RegistrationMsg;
-import com.AniMy.utils.ApiResponse;
+import com.AniMy.utils.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +38,7 @@ public class UserServices implements UserDetailsService {
                     .status(HttpStatus.CONFLICT)
                     .body(new ApiResponse<>(
                             RegistrationMsg.USER_ALREADY_EXISTS,
-                            null));
+                            RegistrationData.USER_ALREADY_EXISTS));
         }
 
         boolean emailExists = userRepository.findByEmail(user.getEmail()).isPresent();
@@ -50,7 +47,7 @@ public class UserServices implements UserDetailsService {
                     .status(HttpStatus.CONFLICT)
                     .body(new ApiResponse<>(
                             RegistrationMsg.EMAIL_ALREADY_EXISTS,
-                            null));
+                            RegistrationData.EMAIL_ALREADY_EXISTS));
         }
         userRepository.save(user);
 
@@ -64,10 +61,10 @@ public class UserServices implements UserDetailsService {
                         link));
 
         return ResponseEntity
-                .status(HttpStatus.CREATED)
+                .status(HttpStatus.OK)
                 .body(new ApiResponse<>(
                         RegistrationMsg.USER_REGISTRATION_SUCCESS,
-                        emailConfirmationToken.getToken()
+                        RegistrationData.USER_REGISTRATION_SUCCESS
                 ));
     }
 
