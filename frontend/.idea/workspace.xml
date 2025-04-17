@@ -4,22 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="signUp card">
-      <change afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/utils/RegistrationData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PopUpMsg.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PopUpMsg.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/config/RegisterConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/controller/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/controller/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/RegistrationService.java" afterDir="false" />
+    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="Sign up backend connection + pop up card">
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/AuthForm.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/SignIn.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/UserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/UserServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/utils/RegistrationMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/utils/RegistrationMsg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/AuthStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,30 +21,30 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JSX File" />
         <option value="CSS File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "sherif-abdoo"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sherif-abdoo&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/sherif-abdoo/AniMy.git",
-    "accountId": "05d129e7-a952-4634-b8b6-7bb354315077"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sherif-abdoo/AniMy.git&quot;,
+    &quot;accountId&quot;: &quot;05d129e7-a952-4634-b8b6-7bb354315077&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2vrRIWW5wyqdQHUrU96n8Am19oS" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -64,6 +56,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Node.js.App.js.executor": "Run",
+    "Node.js.AuthForm.jsx.executor": "Run",
     "Node.js.SignUp.jsx.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -117,7 +110,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744901127716</updated>
-      <workItem from="1744901129568" duration="11911000" />
+      <workItem from="1744901129568" duration="17091000" />
+      <workItem from="1744922001603" duration="419000" />
     </task>
     <task id="LOCAL-00001" summary="front end establishment">
       <option name="closed" value="true" />
@@ -135,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744906300871</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Sign up backend connection + pop up card">
+      <option name="closed" value="true" />
+      <created>1744916469487</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744916469487</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +146,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="front end establishment" />
     <MESSAGE value="signUp card" />
-    <option name="LAST_COMMIT_MESSAGE" value="signUp card" />
+    <MESSAGE value="Sign up backend connection + pop up card" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sign up backend connection + pop up card" />
   </component>
 </project>

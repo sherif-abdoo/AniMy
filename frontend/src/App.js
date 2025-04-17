@@ -1,5 +1,6 @@
 import './App.css';
 import SignUp from './components/Auth/SignUp';
+import SignIn from './components/Auth/SignIn';
 import { Routes, Route } from 'react-router-dom';
 import PopUpMsg from "./components/PopUpMsg";
 import {useState} from "react";
@@ -12,6 +13,7 @@ function App() {
         {/* Global Routes */}
         <Routes>
           <Route path="/signup" element={<SignUp setPopup={setPopup} />} />
+          <Route path="/login" element={<SignIn setPopup={setPopup} />} />
           {/* add more routes */}
         </Routes>
 

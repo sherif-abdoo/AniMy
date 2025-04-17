@@ -54,7 +54,7 @@ public class UserServices implements UserDetailsService {
         EmailConfirmationToken emailConfirmationToken = emailConfirmationService.createToken(user);
         emailConfirmationService.saveConfirmationToken(emailConfirmationToken);
 
-        String link = "http://localhost:8080/api/registration/confirm?token="+emailConfirmationToken.getToken();
+        String link = "http://localhost:8080/api/public/registration/confirm?token="+emailConfirmationToken.getToken();
 
         emailSender.send(user.getEmail(),
                 buildEmail(user.getUsername(),
