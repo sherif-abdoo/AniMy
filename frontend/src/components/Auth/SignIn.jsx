@@ -10,11 +10,10 @@ const SignIn = ({ setPopup }) => {
                     username: form.username,
                     password: form.password
                 }),
-                credentials: 'include' // if using session login
+                credentials: 'include'
             });
 
             if (res.ok) {
-                // Login success logic here
                 window.location.href = '/dashboard';
             } else {
                 setPopup({

@@ -1,5 +1,5 @@
 package com.AniMy.models;
 
 public enum UserRoles {
-    USER,ADMIN
+    ROLE_USER, ROLE_ADMIN
 }

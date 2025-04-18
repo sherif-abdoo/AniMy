@@ -1,11 +1,14 @@
 package com.AniMy.config;
 
-import lombok.AllArgsConstructor;
+import com.AniMy.services.AuthFilter;
+import com.AniMy.services.JwtService;
+import com.AniMy.services.LogInFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -16,22 +19,32 @@ import java.util.List;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
-@AllArgsConstructor
+@RequiredArgsConstructor
+@EnableMethodSecurity
 public class SecurityConfig {
 
     private final AuthProviderConfig authProviderConfig;
+    private final JwtConfig jwtConfig;
+    private final JwtService jwtService;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationManager authManager) throws Exception {
+        LogInFilter loginFilter = new LogInFilter(authManager,jwtService,jwtConfig);
+        loginFilter.setFilterProcessesUrl("/api/login");
+
+        AuthFilter authFilter = new AuthFilter(jwtConfig,jwtService);
+
         http
                 .csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // 👈 manually inject it!
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/public/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authProviderConfig.authenticationProvider())
-                .formLogin(withDefaults());
+                .addFilter(loginFilter)
+                .addFilterBefore(authFilter, LogInFilter.class);
 
         return http.build();
     }
@@ -54,4 +67,3 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 }
-

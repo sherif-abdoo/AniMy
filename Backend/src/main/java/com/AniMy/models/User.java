@@ -39,7 +39,7 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UserRoles role = UserRoles.USER;
+    private UserRoles role = UserRoles.ROLE_USER;
 
 
     @Override
@@ -53,7 +53,7 @@ public class User implements UserDetails {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.role = UserRoles.USER;
+        this.role = UserRoles.ROLE_USER;
         this.enabled = false;
     }
 }
