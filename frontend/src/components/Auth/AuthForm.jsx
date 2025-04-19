@@ -24,7 +24,7 @@ const AuthFrom = ({ type, onSubmit, setPopup }) => {
             <form className={ "signup-form"} onSubmit={handleSubmit}>
                 <div className="signup-header">
                     <img src = {isLogin ? 'pics/temp2.jpg' : 'pics/temp.jpeg'} alt="cover" className="signup-img" />
-                    <h1 className={"signup-title"}>Sign Up</h1>
+                    <h1 className={"signup-title"}>{isLogin? 'Log In' : 'Sign Up'}</h1>
                 </div>
                 <div className="signup-input">
                     <input
