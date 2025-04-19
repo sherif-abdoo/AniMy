@@ -4,20 +4,22 @@ import com.AniMy.config.JwtConfig;
 import com.AniMy.models.User;
 import com.AniMy.utils.ApiResponse;
 import com.AniMy.utils.JSendResponse;
-
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
@@ -28,6 +30,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @AllArgsConstructor
+
 public class LogInFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;
     private final JwtService jwtService;
@@ -50,17 +53,20 @@ public class LogInFilter extends UsernamePasswordAuthenticationFilter {
         String accessToken = jwtService.generateAccessToken(user,issuer);
         String refreshToken = jwtService.generateRefreshToken(user,issuer);
 
+        Cookie cookie = new Cookie("refreshToken",accessToken);
+        cookie.setHttpOnly(true);
+        cookie.setSecure(false);
+        cookie.setPath("/");
+        cookie.setMaxAge(2*24*60*60);
+        response.addCookie(cookie);
+
         //response
 
         ApiResponse<Map<String, String>> responseBody = new ApiResponse<>();
         responseBody.setMessage("Login successfully");
-
         Map<String, String> tokens = new HashMap<>();
         tokens.put("accessToken", accessToken);
-        tokens.put("refreshToken", refreshToken);
-
         responseBody.setData(tokens);
-
         response.setContentType("application/json");
         new ObjectMapper().writeValue(response.getOutputStream(), responseBody);
     }

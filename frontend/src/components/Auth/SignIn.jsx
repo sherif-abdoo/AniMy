@@ -1,6 +1,9 @@
 import AuthForm from './AuthForm';
+import { useNavigate } from 'react-router-dom';
+
 
 const SignIn = ({ setPopup }) => {
+    const navigate = useNavigate();
     const handleLogin = async (form) => {
         try {
             const res = await fetch('http://localhost:8080/api/public/login', {
@@ -16,17 +19,10 @@ const SignIn = ({ setPopup }) => {
             const json = await res.json();
 
             if (res.ok) {
-                const { accessToken, refreshToken } = json.data;
+                const { accessToken} = json.data;
 
                 localStorage.setItem('accessToken', accessToken);
-                localStorage.setItem('refreshToken', refreshToken);
-
-                setPopup({
-                    show: true,
-                    status: 'ana 48al ya bro',
-                    message: 'Login successful',
-                    data: 'gammeed'
-                });
+                navigate('/');
             } else {
                 setPopup({
                     show: true,

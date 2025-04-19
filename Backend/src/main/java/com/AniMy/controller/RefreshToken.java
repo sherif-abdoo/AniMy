@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,12 +25,16 @@ public class RefreshToken {
     private final JwtService jwtService;
     private final UserServices userServices;
     @GetMapping
-    public ResponseEntity<JSendResponse<Map<String, String>>>refreshToken(HttpServletRequest request, HttpServletResponse response) {
-        String authorization = request.getHeader("Authorization");
+    public ResponseEntity<JSendResponse<Map<String, String>>>refreshToken(
+            @CookieValue(value = "refreshToken", required = false)
+                String refreshToken,
+            HttpServletRequest request,
+            HttpServletResponse response) {
+
         JSendResponse<Map<String,String>> res = new JSendResponse<>();
         Map<String,String> data = new HashMap<>();
-        if(authorization != null && authorization.startsWith("Bearer ")) {
-            String refreshToken = authorization.substring(7);
+
+        if(refreshToken != null) {
             DecodedJWT decodedJWT = jwtService.verifyToken(refreshToken,false);
             String username = decodedJWT.getSubject();
             String issuer = request.getRequestURL().toString();

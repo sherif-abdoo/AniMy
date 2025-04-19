@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import './PopUpMsg.css';
 
 const PopUpMsg = ({ status, message, data, onClose , buttonText, onButtonClick}) => {
