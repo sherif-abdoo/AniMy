@@ -27,10 +27,10 @@ const AnimeSlider = ({endpoint,title}) => {
 
     const fetchAnime = async (pageNum) => {
         try{
-            const res = await axios.get('https://api.jikan.moe/v4/top/anime?filter=airing',{
+            const res = await axios.get(endpoint,{
                 params: {
                     page: pageNum,
-                    limit: pageNum === 1 ? 10 : 5,
+                    limit: pageNum === 1 ? 15 : 5,
                 },
             });
 
