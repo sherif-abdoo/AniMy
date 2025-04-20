@@ -26,15 +26,24 @@
 .nav-bar .items a{
     text-decoration: none;
     font-size: 1.3rem;
+    margin : 0 20px;
 }
+
+
 .nav-bar .items .item{
     color: #D2D2D2;
+}
+
+.btns{
+    width: auto;
 }
 
 .btn{
     padding: 0.5rem 1rem;
     font-weight: bold;
     border-radius: 8px;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
 .search-bar{
@@ -53,4 +62,36 @@
 
 .nav-bar img{
     width: 5%;
+    cursor : pointer;
+}
+
+.profile-info {
+    width: auto;
+    height: 50px;
+    cursor : pointer;
+}
+
+.profile-info img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 15px;
+}
+
+.username {
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: white;
+    font-size: 0.95rem;
+    margin-left: 8px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
 }

@@ -4,24 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="login form">
-      <change afterPath="$PROJECT_DIR$/src/components/Anime/AnimeList.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Layout/NavBar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Layout/NavBar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/Home.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Section/HeroSection.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Section/HeroSection.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Shared/SearchBar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Shared/SearchBar.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/controller/RefreshToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/controller/RefreshToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/LogInFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/services/LogInFilter.java" afterDir="false" />
+    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="Hero Section + navBar">
+      <change afterPath="$PROJECT_DIR$/src/components/Anime/AnimeCard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Anime/AnimeCard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Anime/AnimeSlider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Anime/AnimeSlider.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Layout/Layout.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Shared/BannedGernes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/models/JWT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/AniMy/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignIn.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignIn.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopUpMsg.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/PopUpMsg.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PopUpMsg.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/PopUpMsg.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/NavBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/NavBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useAuth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +67,7 @@
   &quot;keyToString&quot;: {
     &quot;Node.js.App.js.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.AuthForm.jsx.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.NavBar.jsx.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.SignIn.jsx.executor&quot;: &quot;Run&quot;,
     &quot;Node.js.SignUp.jsx.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -131,7 +131,9 @@
       <workItem from="1744922001603" duration="579000" />
       <workItem from="1744978696144" duration="5092000" />
       <workItem from="1745014664245" duration="4512000" />
-      <workItem from="1745070998993" duration="12368000" />
+      <workItem from="1745070998993" duration="26567000" />
+      <workItem from="1745109559855" duration="3000" />
+      <workItem from="1745150384874" duration="13603000" />
     </task>
     <task id="LOCAL-00001" summary="front end establishment">
       <option name="closed" value="true" />
@@ -173,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745071043646</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Hero Section + navBar">
+      <option name="closed" value="true" />
+      <created>1745085357564</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745085357564</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +195,7 @@
     <MESSAGE value="Sign up backend connection + pop up card" />
     <MESSAGE value="Auth form" />
     <MESSAGE value="login form" />
-    <option name="LAST_COMMIT_MESSAGE" value="login form" />
+    <MESSAGE value="Hero Section + navBar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hero Section + navBar" />
   </component>
 </project>

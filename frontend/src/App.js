@@ -1,13 +1,14 @@
 import './App.css';
 import SignUp from './components/Auth/SignUp';
 import SignIn from './components/Auth/SignIn';
-import HeroSection from './components/Section/HeroSection';
 import AnimeList from './components/Anime/AnimeList';
-import {Routes, Route, Navigate} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import {useState} from "react";
 import {useAuth} from "./hooks/useAuth";
 import PopUpMsg from "./components/Auth/PopUpMsg";
 import Home from "./components/Pages/Home";
+import Layout from "./components/Layout/Layout";
+import AnimeSlider from "./components/Anime/AnimeSlider";
 
 function App() {
   const [popup, setPopup] = useState({ show: false, status: '', message: '', data: '' });
@@ -15,15 +16,18 @@ function App() {
   return (
       <>
         {/* Global Routes */}
-        <Routes>
-            <Route path = "/" element={<Home />} />
-            <Route path = "/animes" element={<AnimeList/>}/>
-            <Route path="/signup" element={<SignUp setPopup={setPopup} />} />
-            <Route path="/login" element={<SignIn setPopup={setPopup} />} />
-          {/* add more routes */}
-        </Routes>
+        <Layout>
+            <Routes>
+                <Route path = "/" element={<Home />} />
+                <Route path = "/test" element={<AnimeSlider />} />
 
-        {/* Global Popup Renderer */}
+                <Route path = "/animes" element={<AnimeList/>}/>
+                <Route path="/signup" element={<SignUp setPopup={setPopup} />} />
+                <Route path="/login" element={<SignIn setPopup={setPopup} />} />
+            </Routes>
+        </Layout>
+
+
           {popup.show && (
               <PopUpMsg
                   status={popup.status}
