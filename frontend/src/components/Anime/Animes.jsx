@@ -1,4 +1,4 @@
-import AnimeSlider from "./AnimeSlider";
+import AnimeSlider from "../Shared/AnimeSlider";
 import './Animes.css'
 const Animes = ()=> {
 

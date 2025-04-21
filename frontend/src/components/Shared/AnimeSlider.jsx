@@ -4,12 +4,15 @@ import AnimeCard from "./AnimeCard";
 import './AnimeSlider.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import {bannedGenres} from "../Shared/BannedGernes";
+import {bannedGenres} from "./BannedGernes";
+import { useAnimeContext } from "../context/AnimeContext";
 
 const AnimeSlider = ({endpoint,title}) => {
     const [animes, setAnime] = useState([]);
     const [page, setPage] = useState(1);
     const sliderRef = useRef(null);
+    const { storeAnimeList } = useAnimeContext();
+
 
     useEffect(()=>{
         fetchAnime(page);
@@ -45,7 +48,9 @@ const AnimeSlider = ({endpoint,title}) => {
                 const unique = combined.filter((anime, index, self) =>
                     index === self.findIndex(a => a.mal_id === anime.mal_id)
                 );
-                return unique.slice(0, 20);
+                const re = unique.slice(0, 20);
+                storeAnimeList(re);
+                return re;
             });
         }catch(err){
             console.log("fetch err:" , err);
@@ -55,8 +60,6 @@ const AnimeSlider = ({endpoint,title}) => {
     const handleScroll = () => {
         const el = sliderRef.current;
         if (!el) return;
-        const atStart = el.scrollLeft <= 10;
-        const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 10;
         if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 100 && animes.length < 20) {
             setPage(prev => prev + 1);
         }
