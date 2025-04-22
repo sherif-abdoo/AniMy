@@ -1,6 +1,7 @@
 package com.AniMy.services;
 
 import com.AniMy.config.JwtConfig;
+import com.AniMy.models.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -25,6 +26,7 @@ import static java.util.Arrays.stream;
 public class JwtService {
 
     private final JwtConfig jwtConfig;
+    private final UserServices userServices;
 
     public String generateAccessToken(UserDetails user, String issuer) {
         Algorithm algorithm = Algorithm.HMAC256(jwtConfig.getAccess().getSecret().getBytes());
@@ -65,8 +67,10 @@ public class JwtService {
     }
 
     public UsernamePasswordAuthenticationToken buildAuthentication(DecodedJWT jwt) {
+        String username = jwt.getSubject();
+        User user = (User)userServices.loadUserByUsername(username);
         return new UsernamePasswordAuthenticationToken(
-                jwt.getSubject(),
+                user,
                 null,
                 extractAuthorities(jwt)
         );

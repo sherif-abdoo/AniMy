@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="single anime page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/NavBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Shared/SearchBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/SearchBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Shared/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/SearchBar.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="search bar" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +119,7 @@
       <workItem from="1745150384874" duration="19099000" />
       <workItem from="1745242538445" duration="1313000" />
       <workItem from="1745244273515" duration="14159000" />
-      <workItem from="1745277200504" duration="3918000" />
+      <workItem from="1745277200504" duration="5344000" />
     </task>
     <task id="LOCAL-00001" summary="front end establishment">
       <option name="closed" value="true" />
@@ -198,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745261487589</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="search bar">
+      <option name="closed" value="true" />
+      <created>1745284972326</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1745284972326</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +216,7 @@
     <MESSAGE value="Hero Section + navBar" />
     <MESSAGE value="Anime Slider done" />
     <MESSAGE value="single anime page" />
-    <option name="LAST_COMMIT_MESSAGE" value="single anime page" />
+    <MESSAGE value="search bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="search bar" />
   </component>
 </project>

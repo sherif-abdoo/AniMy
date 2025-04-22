@@ -12,15 +12,14 @@ import java.time.LocalDateTime;
 public class WatchList {
     @Id
     @GeneratedValue
-    private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "anime_id", nullable = false)
-    private Anime anime;
-
+    private long id;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @Column(name = "anime_id", nullable = false)
+    private String animeId;
+
 
     @Enumerated(EnumType.STRING)
     private WatchListStatus status;
