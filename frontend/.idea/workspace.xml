@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="Anime Slider done">
-      <change afterPath="$PROJECT_DIR$/src/components/Layout/ScrollToTop.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/AnimePage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Pages/AnimePage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Shared/Button.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Shared/Button.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/context/AnimeContext.jsx" afterDir="false" />
+    <list default="true" id="163c9d4b-4f6b-40ad-adc3-b2739841e5b5" name="Changes" comment="single anime page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Anime/AnimeCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/AnimeCard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Anime/AnimeCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/AnimeCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Anime/AnimeList.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Anime/AnimeSlider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/AnimeSlider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Anime/AnimeSlider.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/AnimeSlider.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Anime/Animes.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Anime/Animes.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Shared/SearchBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/SearchBar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Shared/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Shared/SearchBar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +123,8 @@
       <workItem from="1745109559855" duration="3000" />
       <workItem from="1745150384874" duration="19099000" />
       <workItem from="1745242538445" duration="1313000" />
-      <workItem from="1745244273515" duration="13541000" />
+      <workItem from="1745244273515" duration="14159000" />
+      <workItem from="1745277200504" duration="3918000" />
     </task>
     <task id="LOCAL-00001" summary="front end establishment">
       <option name="closed" value="true" />
@@ -199,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745177535059</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="single anime page">
+      <option name="closed" value="true" />
+      <created>1745261487589</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1745261487589</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +212,7 @@
     <MESSAGE value="login form" />
     <MESSAGE value="Hero Section + navBar" />
     <MESSAGE value="Anime Slider done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Anime Slider done" />
+    <MESSAGE value="single anime page" />
+    <option name="LAST_COMMIT_MESSAGE" value="single anime page" />
   </component>
 </project>

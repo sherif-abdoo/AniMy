@@ -17,7 +17,7 @@ const NavBar = ()=>{
     return (
         <div className="nav-bar">
             <img src = {logo} className="logo" alt="logo" onClick={logoClickHandler}/>
-            <SearchBar className = "search-bar" placeHolder={"Search Anime Title"}/>
+            <SearchBar className = "search-bar" placeHolder={"Search Anime Title"} type={"anime"}/>
             <ul className={"items"}>
                 <li><Link to="/animes" className={"item"}>Animes</Link></li>
                 <li><Link to="/friends" className={"item"}>Friends</Link></li>
