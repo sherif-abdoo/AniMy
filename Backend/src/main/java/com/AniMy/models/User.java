@@ -1,4 +1,5 @@
 package com.AniMy.models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -15,7 +16,7 @@ import java.util.Collections;
 @ToString
 public class User implements UserDetails {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(
@@ -25,21 +26,30 @@ public class User implements UserDetails {
     private String username;
 
     @Column(nullable = false)
+    @JsonIgnore
     private String password;
 
     @Column(
         unique = true,
         nullable = false
     )
+    @JsonIgnore
     private String email;
 
     @Column(nullable = false)
+    @JsonIgnore
     private boolean enabled = false;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRoles role = UserRoles.ROLE_USER;
 
+
+    @Column(nullable = false)
+    private String avatar = "https://res.cloudinary.com/your-cloud-name/image/upload/v1234567890/default-avatar.jpg";
+
+    @Column
+    private String bio;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -54,5 +64,6 @@ public class User implements UserDetails {
         this.email = email;
         this.role = UserRoles.ROLE_USER;
         this.enabled = false;
+        this.avatar = "https://res.cloudinary.com/your-cloud-name/image/upload/v1234567890/default-avatar.jpg";
     }
 }

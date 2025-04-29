@@ -1,13 +1,11 @@
-package com.AniMy.controller;
+package com.AniMy.controller.User;
 
 import com.AniMy.Dto.WatchListDto;
-import com.AniMy.models.User;
 import com.AniMy.models.WatchList;
 import com.AniMy.models.WatchListStatus;
 import com.AniMy.repository.UserRepository;
 import com.AniMy.services.AddToListService;
 import com.AniMy.services.GetListService;
-import com.AniMy.services.UserServices;
 import com.AniMy.utils.JSendResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/public/addToList")
+@RequestMapping("/api/user/animeList")
 @AllArgsConstructor
 public class Lists {
     private final UserRepository userRepository;
@@ -56,28 +54,29 @@ public class Lists {
                 .body(res);
     }
 
-    @GetMapping("/{username}")
+    @GetMapping()
     public ResponseEntity<JSendResponse<Map<String,List<WatchListDto>>>>
-        getList(@PathVariable String username,
-                @RequestParam WatchListStatus status) {
+        getList(@RequestParam WatchListStatus status,
+                @AuthenticationPrincipal UserDetails user) {
         JSendResponse<Map<String,List<WatchListDto>>> res = new JSendResponse<>();
         Map<String,List<WatchListDto>> data = new HashMap<>();
-        boolean exists = userRepository.existsByUsername(username);
+        boolean exists = userRepository.existsByUsername(user.getUsername());
         if(!exists){
             res.setStatus("fail");
             res.setData(null);
             return ResponseEntity
-                    .status(200)
+                    .status(404)
                     .body(res);
         }
 
-        List<WatchList> results = getListService.getUserList(username,status);
+        List<WatchList> results = getListService.getUserList(user.getUsername(),status);
         data.put("animes" ,
                 results.stream().map(anime ->
                         new WatchListDto(anime.getAnimeId(),anime.getStatus()))
                         .toList());
         res.setStatus("success");
         res.setData(data);
+        System.out.println(res);
         return ResponseEntity
                 .status(200)
                 .body(res);

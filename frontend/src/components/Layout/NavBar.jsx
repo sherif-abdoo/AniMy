@@ -8,11 +8,17 @@ import {useAuth} from "../../hooks/useAuth";
 const NavBar = ()=>{
     const {isLoggedIn,user} = useAuth();
     const navigate = useNavigate();
+
+
     const profileClickHandler = () =>{
-        navigate("/profile");
+        navigate(`/profile/${user.sub}`);
     }
     const logoClickHandler = () =>{
         navigate("/");
+    }
+    if (!user && isLoggedIn) {
+        // User is still loading, so don't render anything yet
+        return null;
     }
     return (
         <div className="nav-bar">
@@ -31,7 +37,7 @@ const NavBar = ()=>{
                     )
                     :(
                         <div className="profile-info" onClick={profileClickHandler}>
-                            <img src={profile} className="profile-pic" alt="profile"
+                            <img src={user.avatar} className="profile-pic" alt="profile"
                                  onClick={profileClickHandler} />
                             <span className="username"
                                   onClick={profileClickHandler}>{user?.sub}</span>

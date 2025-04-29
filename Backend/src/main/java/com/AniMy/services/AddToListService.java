@@ -26,7 +26,7 @@ public class AddToListService {
             else if(exists.getStatus() != status){
                 exists.setStatus(status);
                 watchListRepository.save(exists);
-                return "The anime already added to "+ status;
+                return "Added to "+ status + " List";
             }
         }
         WatchList watchList = new WatchList();
@@ -37,6 +37,6 @@ public class AddToListService {
         watchListRepository.save(watchList);
 
 
-        return "Added to the list";
+        return "Added to "+ status + " List";
     }
 }

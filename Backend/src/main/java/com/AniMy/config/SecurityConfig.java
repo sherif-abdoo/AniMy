@@ -33,7 +33,7 @@ public class SecurityConfig {
         LogInFilter loginFilter = new LogInFilter(authManager,jwtService,jwtConfig);
         loginFilter.setFilterProcessesUrl("/api/public/login");
 
-        AuthFilter authFilter = new AuthFilter(jwtConfig,jwtService);
+        AuthFilter authFilter = new AuthFilter(jwtService);
 
         http
                 .csrf(csrf -> csrf.disable())
@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/public/login").permitAll()
                         .requestMatchers("/api/public/**").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form.disable())
@@ -56,7 +57,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of("http://localhost:3000"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE","PATCH", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 

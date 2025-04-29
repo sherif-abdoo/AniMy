@@ -1,5 +1,5 @@
 import NavBar from "../Layout/NavBar";
-import HeroSection from "../Section/HeroSection";
+import HeroSection from "./HeroSection";
 
 const Home = () => {
 

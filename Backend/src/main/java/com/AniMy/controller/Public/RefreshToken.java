@@ -1,4 +1,4 @@
-package com.AniMy.controller;
+package com.AniMy.controller.Public;
 
 import com.AniMy.models.User;
 import com.AniMy.services.JwtService;
@@ -10,10 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +21,7 @@ import java.util.Map;
 public class RefreshToken {
     private final JwtService jwtService;
     private final UserServices userServices;
-    @GetMapping
+    @PostMapping
     public ResponseEntity<JSendResponse<Map<String, String>>>refreshToken(
             @CookieValue(value = "refreshToken", required = false)
                 String refreshToken,
@@ -33,7 +30,6 @@ public class RefreshToken {
 
         JSendResponse<Map<String,String>> res = new JSendResponse<>();
         Map<String,String> data = new HashMap<>();
-
         if(refreshToken != null) {
             DecodedJWT decodedJWT = jwtService.verifyToken(refreshToken,false);
             String username = decodedJWT.getSubject();
@@ -41,7 +37,7 @@ public class RefreshToken {
             User user = (User)userServices.loadUserByUsername(username);
             String newAccessToken = jwtService.generateAccessToken(user,issuer);
             res.setStatus("success");
-            data.put("access_token",newAccessToken);
+            data.put("accessToken",newAccessToken);
             res.setData(data);
             return ResponseEntity
                     .status(HttpStatus.OK)

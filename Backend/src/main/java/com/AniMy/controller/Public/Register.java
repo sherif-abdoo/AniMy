@@ -1,10 +1,9 @@
-package com.AniMy.controller;
+package com.AniMy.controller.Public;
 
 import com.AniMy.services.RegistrationService;
 import com.AniMy.utils.ApiResponse;
 import com.AniMy.utils.registerRequest;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @RestController

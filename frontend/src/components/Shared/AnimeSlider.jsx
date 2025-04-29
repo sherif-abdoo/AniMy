@@ -6,17 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import {bannedGenres} from "./BannedGernes";
 import { useAnimeContext } from "../context/AnimeContext";
+import {authFetch} from "../Auth/AuthFetch";
 
-const AnimeSlider = ({endpoint,title}) => {
+const AnimeSlider = ({endpoint,title,animeList}) => {
     const [animes, setAnime] = useState([]);
     const [page, setPage] = useState(1);
     const sliderRef = useRef(null);
     const { storeAnimeList } = useAnimeContext();
+    const [arrows , setArrows] = useState(true);
 
-
-    useEffect(()=>{
-        fetchAnime(page);
-    }, [page]);
 
 
     const scroll = (direction) => {
@@ -28,30 +26,92 @@ const AnimeSlider = ({endpoint,title}) => {
         }
     };
 
-    const fetchAnime = async (pageNum) => {
-        try{
-            const res = await axios.get(endpoint,{
-                params: {
-                    page: pageNum,
-                    limit: pageNum === 1 ? 15 : 5,
-                },
-            });
+    useEffect(() => {
+        setAnime([]);
+        const fetch = async () => {
+            if (animeList && Array.isArray(animeList) && animeList.length > 0) {
+                const ids = animeList.map(item => typeof item === 'object' ? item.animeId : item);
+                console.log("Fetching animes by IDs from clean array...", ids);
+                await fetchAnimesByIds(ids);
+                setArrows(true)
+            } else if (!animeList && page === 1 && endpoint) {
+                await fetchAnime(page);
+                setArrows(true)
+            }
+            else {
+                setArrows(false);
+            }
+        };
+        fetch();
+    }, [animeList]);
 
-            const newAnimes = res.data.data.filter(anime =>
-                !anime.genres.concat(anime.themes || [], anime.demographics || []).some(genre =>
-                    bannedGenres.includes(genre.name.toLowerCase())
-                )
+    const fetchAnimesByIds = async (ids) => {
+        try {
+            const animePromises = ids.map(id =>
+                axios.get(`https://api.jikan.moe/v4/anime/${id}`).then(r => r.data.data)
             );
 
-            setAnime(prev => {
-                const combined = [...prev, ...newAnimes];
-                const unique = combined.filter((anime, index, self) =>
-                    index === self.findIndex(a => a.mal_id === anime.mal_id)
+            const animeResults = await Promise.allSettled(animePromises);
+
+            const animesDetails = animeResults
+                .filter(result => result.status === 'fulfilled')
+                .map(result => result.value);
+
+            const validAnimes = animesDetails.filter(anime => anime !== null && anime !== undefined);
+
+            setAnime(validAnimes);
+
+            console.log("Fetched animes by IDs successfully ✅");
+
+            setTimeout(() => {
+                storeAnimeList(validAnimes);
+            }, 0);
+        } catch (err) {
+            console.error("Error fetching animes by IDs:", err);
+        }
+    };
+
+
+
+
+    const fetchAnime = async (pageNum) => {
+        try{
+            if(endpoint){
+                const res = await axios.get(endpoint,{
+                    params: {
+                        page: pageNum,
+                        limit: pageNum === 1 ? 15 : 5,
+                    },
+                });
+
+                const newAnimes = res.data.data.filter(anime =>
+                    !anime.genres.concat(anime.themes || [], anime.demographics || []).some(genre =>
+                        bannedGenres.includes(genre.name.toLowerCase())
+                    )
                 );
-                const re = unique.slice(0, 20);
-                storeAnimeList(re);
-                return re;
-            });
+
+                setAnime(prev => {
+                    const combined = [...prev, ...newAnimes];
+                    const unique = combined.filter((anime, index, self) =>
+                        index === self.findIndex(a => a.mal_id === anime.mal_id)
+                    );
+                    const re = unique.slice(0, 20);
+                    storeAnimeList(re);
+                    return re;
+                });
+            }
+            else{
+                const res = await authFetch(`http://localhost:8080/api/user/animeList?status=${title.toUpperCase()}`, {
+                    method: "GET",
+                });
+
+                const resJson = await res.json();
+                console.log(resJson);
+                const animesIds = resJson.data.animes.map(anime => Number(anime.animeId));
+
+                fetchAnimesByIds(animesIds);
+
+            }
         }catch(err){
             console.log("fetch err:" , err);
         }
@@ -69,9 +129,11 @@ const AnimeSlider = ({endpoint,title}) => {
         <div className = "container">
             <h1 className={"title"}>{title || "Trending"}</h1>
 
-            <div className="arrow left" onClick={() => scroll("left")}>
-                <FontAwesomeIcon icon={faChevronLeft} />
-            </div>
+            {arrows &&
+                (<div className="arrow left" onClick={() => scroll("left")}>
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                </div>)
+            }
 
             <div className = "slider_wrapper">
                 <div className={"anime_slider"}  ref={sliderRef} onScroll={handleScroll}>
@@ -81,9 +143,11 @@ const AnimeSlider = ({endpoint,title}) => {
                 </div>
             </div>
 
-            <div className="arrow right" onClick={() => scroll("right")}>
-                <FontAwesomeIcon icon={faChevronRight} />
-            </div>
+            {arrows &&
+                (<div className="arrow right" onClick={() => scroll("right")}>
+                    <FontAwesomeIcon icon={faChevronRight} />
+                </div>)
+            }
 
         </div>
     )

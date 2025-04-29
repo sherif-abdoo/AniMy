@@ -32,6 +32,7 @@ body{
     padding: 1rem;
     position: relative; /* ✅ enables z-index for hover children */
     z-index: 1;
+    min-height: 350px;
 }
 
 .anime_slider::-webkit-scrollbar {

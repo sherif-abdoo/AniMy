@@ -1,49 +1,63 @@
-import './SearchBar.css'
+import './SearchBar.css';
 import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 import axios from "axios";
 import {bannedGenres} from "./BannedGernes";
-const SearchBar = ({placeHolder,type}) => {
+
+const SearchBar = () => {
     const [query, setQuery] = useState('');
     const [results, setResults] = useState([]);
     const navigate = useNavigate();
+    const location = useLocation();
 
+    // Detect search type based on route
+    const searchType = (location.pathname.startsWith('/friends') || location.pathname.startsWith('/friendRequests'))
+        ? 'friends'
+        : 'anime';
+
+    // Set placeholder based on route
+    const placeHolder = searchType === 'friends' ? 'Search Friends...' : 'Search Anime...';
 
     useEffect(() => {
         const delayDebounce = setTimeout(() => {
-            if(query.trim() === ''){
+            if (query.trim() === '') {
                 setResults([]);
                 return;
             }
 
-            if(type === 'anime'){
-                axios.get("https://api.jikan.moe/v4/anime" , {
-                    params: {q : query , limit : 5},
+            if (searchType === 'anime') {
+                axios.get("https://api.jikan.moe/v4/anime", {
+                    params: {q: query, limit: 5},
                 })
-                .then(res => {
-                    const filtered = res.data.data.filter(anime =>
-                        !anime.genres.some(genre =>
-                            bannedGenres.includes(genre.name.toLowerCase())
-                        )
-                    );
-                    setResults(filtered.slice(0, 5));
-                })
-                .catch(err => console.log(err));
-            }},50);
-            return () => clearTimeout(delayDebounce);
-    },[query,type]);
+                    .then(res => {
+                        const filtered = res.data.data.filter(anime =>
+                            !anime.genres.some(genre =>
+                                bannedGenres.includes(genre.name.toLowerCase())
+                            )
+                        );
+                        setResults(filtered.slice(0, 5));
+                    })
+                    .catch(err => console.log(err));
+            } else if (searchType === 'friends') {
+                axios.get(`http://localhost:8080/api/public/profile/searchUsers?q=${query}`, { withCredentials: true })
+                    .then(res => {
+                        setResults(res.data.data.users.slice(0, 5));
+                    })
+                    .catch(err => console.log(err));
+            }
+        }, 50);
 
-
+        return () => clearTimeout(delayDebounce);
+    }, [query, searchType]);
 
     const handleChange = (item) => {
-        if(type === "anime"){
+        if (searchType === "anime") {
             navigate(`/anime/${item.mal_id}`);
-        }else if(type === "friends"){
-            navigate(`/users/item.id`)
+        } else if (searchType === "friends") {
+            navigate(`/profile/${item.username}`);
         }
         setQuery('');
         setResults([]);
-
     };
 
     return (
@@ -59,31 +73,30 @@ const SearchBar = ({placeHolder,type}) => {
                 <div className="search-results">
                     {results.map((item) => (
                         <div
-                            key={type === "anime" ? item.mal_id : item.id}
+                            key={searchType === "anime" ? item.mal_id : item.username}
                             className="search-result"
                             onClick={() => handleChange(item)}
                         >
                             <div className="search-img">
                                 <img
                                     src={
-                                        type === "anime"
+                                        searchType === "anime"
                                             ? item.images.jpg.large_image_url
-                                            : item.profilePic
+                                            : item.avatar
                                     }
-                                    alt={item.title || item.username}
+                                    alt={searchType === "anime" ? (item.title_english || item.title) : item.username}
                                     className="result-img"
                                 />
                             </div>
                             <span>
-                                {type === "anime" ? item.title_english || item.title : item.username}
+                                {searchType === "anime" ? (item.title_english || item.title) : item.username}
                             </span>
                         </div>
                     ))}
                 </div>
             )}
         </div>
-
-    )
-}
+    );
+};
 
 export default SearchBar;

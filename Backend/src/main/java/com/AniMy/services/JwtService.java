@@ -29,12 +29,14 @@ public class JwtService {
     private final UserServices userServices;
 
     public String generateAccessToken(UserDetails user, String issuer) {
+        User userLoaded = (User) userServices.loadUserByUsername(user.getUsername());
         Algorithm algorithm = Algorithm.HMAC256(jwtConfig.getAccess().getSecret().getBytes());
         return JWT.create()
                 .withSubject(user.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + jwtConfig.getAccess().getExpiration()))
                 .withIssuer(issuer)
                 .withClaim("role", getRoles(user))
+                .withClaim("avatar",userLoaded.getAvatar())
                 .sign(algorithm);
     }
 

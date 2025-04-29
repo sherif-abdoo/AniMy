@@ -1,0 +1,47 @@
+.friends-page{
+    padding-top: 10vh;
+    padding-inline: 5vw;
+}
+
+.friends-header {
+    display: flex;
+    justify-content: flex-end; /* moves the title to the right */
+    align-items: center;
+    margin-bottom: 20px;
+    padding : 1.5rem 0;
+}
+
+.friends-page-title{
+    display: flex;
+    align-items: center; /* center vertically */
+    color : white;
+    font-size: 40px;
+    border-bottom: #D2D2D2 solid 1.5px;
+    cursor: pointer;
+}
+
+
+.requests-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 8px;
+    background-color: #c21515;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.friends-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    gap: 30px;
+    justify-items: center;
+}
+
+
+

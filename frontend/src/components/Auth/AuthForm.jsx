@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import './AuthStyle.css';
 import { useNavigate } from 'react-router-dom';
+import loginPic from '../../assets/profile3.jpg';
+import signUpPic from '../../assets/temp.jpeg';
 
-const AuthFrom = ({ type, onSubmit, setPopup }) => {
+
+const AuthFrom = ({ type, onSubmit}) => {
     const[form , setForm] = useState({ username: '', email: '', password: '' })
     const navigate = useNavigate();
 
@@ -23,7 +26,7 @@ const AuthFrom = ({ type, onSubmit, setPopup }) => {
         <div className="signup-container">
             <form className={ "signup-form"} onSubmit={handleSubmit}>
                 <div className="signup-header">
-                    <img src = {isLogin ? 'pics/temp2.jpg' : 'pics/temp.jpeg'} alt="cover" className="signup-img" />
+                    <img src = {isLogin ? loginPic : signUpPic} alt="cover" className="signup-img" />
                     <h1 className={"signup-title"}>{isLogin? 'Log In' : 'Sign Up'}</h1>
                 </div>
                 <div className="signup-input">

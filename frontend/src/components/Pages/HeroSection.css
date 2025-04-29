@@ -29,21 +29,25 @@
 
 .hero .left_section h1 {
     color: #D2D2D2;
-    font-size: 50px;
-    font-family: Inria Serif;
+    font-size: 45px;
+    font-family: "Boldonse", system-ui;
+    font-weight: 400;
+    font-style: normal;
     letter-spacing: 5px;
     padding-bottom : 20px;
+    width: 700px;
 }
 
 .hero .left_section h3 {
     color: #D2D2D2;
-    font-weight: lighter;
+    font-weight: 500;
     font-size: 20px;
     padding-bottom: 20px;
 }
 
 .hero .left_section button {
     background-color: #413685;
+    font-weight: 600;
     color: #D2D2D2;
     border: none;
     cursor: pointer;
@@ -51,7 +55,6 @@
     padding : 0.75rem 2rem;
     width: 50%;
     font-size: 30px;
-    color : white;
     border-radius: 10px;
 }
 

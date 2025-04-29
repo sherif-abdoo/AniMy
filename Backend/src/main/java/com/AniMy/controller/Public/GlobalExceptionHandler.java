@@ -1,4 +1,4 @@
-package com.AniMy.controller;
+package com.AniMy.controller.Public;
 
 import com.AniMy.utils.JSendResponse;
 import com.auth0.jwt.exceptions.JWTVerificationException;

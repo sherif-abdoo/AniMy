@@ -1,5 +1,6 @@
 package com.AniMy.services;
 
+import com.AniMy.Dto.UserDto;
 import com.AniMy.models.EmailConfirmationToken;
 import com.AniMy.models.User;
 import com.AniMy.repository.EmailSender;
@@ -13,6 +14,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class UserServices implements UserDetailsService {
@@ -21,6 +25,12 @@ public class UserServices implements UserDetailsService {
     private final EmailConfirmationService emailConfirmationService;
     private final EmailSender emailSender;
 
+    public List<UserDto> searchUsersByUsername(String query) {
+        List<User> users = userRepository.findByUsernameContainingIgnoreCase(query);
+        return users.stream()
+                .map(user -> new UserDto(user.getAvatar(),user.getUsername()))
+                .collect(Collectors.toList());
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username)

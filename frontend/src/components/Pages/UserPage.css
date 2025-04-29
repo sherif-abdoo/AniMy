@@ -1,0 +1,38 @@
+.user-page{
+    padding-top: 12vh;
+}
+
+.user-sliders{
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+
+
+.btnn {
+    width: auto;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 0 10px;
+    border: none;
+    font-size: 20px;
+}
+
+
+.disabled {
+    color: #ffffff;
+    background-color: grey;
+    cursor: not-allowed;
+}
+.unfriend {
+    background-color: red;
+    color: white;
+}
+
+.unblock{
+    background-color: #07070f;
+}

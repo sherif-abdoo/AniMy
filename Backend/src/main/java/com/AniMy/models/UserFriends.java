@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Setter
 @Getter
-public class User_Friends {
+public class UserFriends {
 
     @Id
     @GeneratedValue

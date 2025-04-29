@@ -6,7 +6,7 @@
         const location = useLocation();
         const path = location.pathname;
 
-        const hideNav = path === '/login' || path === '/signup' || path === '/test';
+        const hideNav = path === '/login' || path === '/signup' ;
         return (
             <>
                 {!hideNav && <NavBar/>}
