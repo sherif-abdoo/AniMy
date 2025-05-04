@@ -49,16 +49,6 @@ Built with **Spring Boot** and **React.js**, AniMy features secure JWT authentic
 
 ---
 
-## 🚀 Deployment
-
-| Layer       | Platform     |
-|-------------|--------------|
-| Frontend    | Vercel       |
-| Backend     | Render / Railway |
-| Database    | Hosted MySQL (e.g., PlanetScale, ElephantSQL) |
-
----
-
 ## 🛠️ Setup Instructions
 
 ### Backend
